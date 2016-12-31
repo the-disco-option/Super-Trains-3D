@@ -2,6 +2,10 @@
 using System.Collections;
 using System;
 
+/// <summary>
+/// A binary heap
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class Heap<T> where T : IHeapItem<T>
 {
 
