@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
-
+/// <summary>
+/// This is a binary heap for use in pathfinding. 
+/// </summary>
+/// <typeparam name="T"></typeparam>
 public class Heap<T> where T : IHeapItem<T>
 {
 
@@ -21,6 +24,10 @@ public class Heap<T> where T : IHeapItem<T>
         currentItemCount++;
     }
 
+    /// <summary>
+    /// Gets the first item, then removes it from the heap.
+    /// </summary>
+    /// <returns></returns>
     public T RemoveFirst()
     {
         T firstItem = items[0];
