@@ -69,6 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Components\BackgroundCars.cs" />
     <Compile Include="Assets\Components\InspectorButton.cs" />
     <Compile Include="Assets\Components\Path\Junction.cs" />
     <Compile Include="Assets\Components\Path\MyNode.cs" />

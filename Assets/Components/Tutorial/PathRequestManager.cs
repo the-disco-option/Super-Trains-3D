@@ -1,8 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System;
-
+/// <summary>
+/// Singleton?!?!
+/// </summary>
 public class PathRequestManager : MonoBehaviour {
+
+    Queue<PathRequest> pathRequestQueue = new Queue<PathRequest>();
+    PathRequest currentPathRequest;
+    static PathRequestManager instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     public static void RequestPath(Vector3 pathStart, Vector3 pathEnd, Action<Vector3[], bool> callback)
     {
