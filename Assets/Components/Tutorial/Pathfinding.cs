@@ -23,6 +23,10 @@ public class Pathfinding : MonoBehaviour
         }
         
     }
+    public void StartFindPath(Vector3 startPos, Vector3 targetPos)
+    {
+
+    }
 
     void FindPath(Vector3 startPos, Vector3 targetPos)
     {
