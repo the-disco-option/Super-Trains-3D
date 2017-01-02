@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class Pathfinding : MonoBehaviour
 {
-
+    public UnityEvent PathFound;
     public Transform seeker, target;
 
     Grid grid;

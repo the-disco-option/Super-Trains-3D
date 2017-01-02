@@ -10,7 +10,8 @@ public class Grid : MonoBehaviour
     public Vector2 gridWorldSize;
     [Range(0.1f, 100)]
     public float nodeRadius;
-
+    [InspectorButton("CreateGrid")]
+    public bool updateGrid;
     Node[,] grid;
     float nodeDiameter;
     int gridSizeX, gridSizeY;
@@ -31,7 +32,7 @@ public class Grid : MonoBehaviour
         }
     }
 
-    void CreateGrid()
+    public void CreateGrid()
     {
         grid = new Node[gridSizeX, gridSizeY];
         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
@@ -127,7 +128,7 @@ public class Grid : MonoBehaviour
         }
     }
 
-    public void OnValidate()
+    void OnValidate()
     {
         if (gridWorldSize.x < 1)
         {
