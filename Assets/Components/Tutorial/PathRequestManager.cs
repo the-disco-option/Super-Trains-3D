@@ -22,6 +22,10 @@ public class PathRequestManager : MonoBehaviour {
 
     public static void RequestPath(Vector3 pathStart, Vector3 pathEnd, Action<Vector3[], bool> callback)
     {
+        if (instance == null)
+        {
+            print("Pathfinding - Component not placed");
+        }
         PathRequest newRequest = new PathRequest(pathStart, pathEnd, callback);
         instance.pathRequestQueue.Enqueue(newRequest);
         instance.TryProcessNext();
