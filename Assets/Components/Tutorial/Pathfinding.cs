@@ -103,24 +103,15 @@ public class Pathfinding : MonoBehaviour
 
         for (int i = 0; i < path.Count; i++)
         {
-            if (false)
+            if (i + 1 < path.Count)
             {
-                waypoints.Add(path[i].worldPosition);
-            }
-            else
-            {
-                if (i+1 < path.Count)
+                Vector2 directionNew = new Vector2(path[i].gridX - path[i + 1].gridX, path[i].gridY - path[i + 1].gridY);
+                if (directionNew != directionOld)
                 {
-                    Vector2 directionNew = new Vector2(path[i].gridX - path[i + 1].gridX, path[i].gridY - path[i + 1].gridY);
-                    if (directionNew != directionOld)
-                    {
-                        waypoints.Add(path[i].worldPosition);
-                    }
-                    directionOld = directionNew;
+                    waypoints.Add(path[i].worldPosition);
                 }
-                
+                directionOld = directionNew;
             }
-             
         }
 
         return waypoints.ToArray();
