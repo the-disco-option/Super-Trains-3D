@@ -35,6 +35,18 @@ public class BasicTest {
         var J1 = Func_Lib.MakeWithC<Junction>();
         Assert.IsNotNull(J1.GetComponent<Junction>());
     }
+
+    [Test]
+    public void GetClosestTest()
+    {
+        Vector3 source = Vector3.zero;
+        Vector3[] targets = new Vector3[3];
+        targets[0] = new Vector3(1, 0);
+        targets[1] = new Vector3(1, 1);
+        targets[2] = new Vector3(1, 1, 1);
+        var closest = Func_Lib.GetClosest(targets, source);
+        Assert.AreEqual(targets[0], closest);
+    }
     
 }
 [TestFixture]
