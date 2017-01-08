@@ -31,4 +31,23 @@ public static class Func_Lib {
         var r = MakeWithC<MyNode>();
         return r;
     }
+
+    public static Vector3 GetClosest(Vector3[] objects, Vector3 source)
+    {
+        Vector3 bestTarget = Vector3.zero;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = source;
+        foreach (Vector3 potentialTarget in objects)
+        {
+            Vector3 directionToTarget = potentialTarget - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+        }
+
+        return bestTarget;
+    }
 }
