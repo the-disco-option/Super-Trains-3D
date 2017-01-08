@@ -5,9 +5,16 @@ using System;
 public class CarGrid : NavGrid {
 
     public CarNode nodes;
+
+    CarNodeC[] objects;
+
+    void Awake()
+    {
+        CreateGrid();
+    }
     public void CreateGrid()
     {
-        nodes = GetComponentInChildren<CarNode>();
+        objects = GameObject.FindObjectsOfType<CarNodeC>();
     }
     public override Node NodeFromWorldPoint(Vector3 worldPosition)
     {
