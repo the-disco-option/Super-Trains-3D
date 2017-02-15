@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CarNodeC : MonoBehaviour
 {
-    CarNode node;
+    public CarNode node;
 
     public CarNodeC parent;
     public List<CarNodeC> connections;

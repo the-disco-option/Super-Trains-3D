@@ -50,4 +50,23 @@ public static class Func_Lib {
 
         return bestTarget;
     }
+
+    public static Transform GetClosestTransform(Transform[] enemies, Vector3 source)
+    {
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = source;
+        foreach (Transform potentialTarget in enemies)
+        {
+            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+        }
+
+        return bestTarget;
+    }
 }

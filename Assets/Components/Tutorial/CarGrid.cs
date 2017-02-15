@@ -7,6 +7,7 @@ public class CarGrid : NavGrid {
     public CarNode nodes;
 
     CarNodeC[] objects;
+    Transform[] transforms;
 
     void Awake()
     {
@@ -15,10 +16,16 @@ public class CarGrid : NavGrid {
     public void CreateGrid()
     {
         objects = GameObject.FindObjectsOfType<CarNodeC>();
+        transforms = new Transform[objects.Length];
+        for (int i = 0; i < objects.Length; i++)
+        {
+            transforms[i] = objects[i].transform;
+        }
     }
     public override Node NodeFromWorldPoint(Vector3 worldPosition)
     {
-        throw new NotImplementedException();
+        var t = Func_Lib.GetClosestTransform(transforms, worldPosition);
+        return t.gameObject.GetComponent<CarNodeC>().node;
     }
 }
 
